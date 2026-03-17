@@ -21,11 +21,13 @@ The dataset used in this project is available via the following cloud storage li
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-repo/LHRF-YOLO.git
-cd LHRF-YOLO
+git clone https://github.com/whynotnanfeng/LHRF.git
+cd LHRF
 
-# Install dependencies
-pip install -e .
+# Install dependencies (choose one)
+pip install -r requirements.txt       # Standard installation
+# OR
+pip install -e .                      # Editable mode for development
 ```
 
 ### Quick Start
