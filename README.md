@@ -8,3 +8,56 @@ The dataset used in this project is available via the following cloud storage li
 - 📦 **Alternative Link**: [QuarkDrive](https://pan.quark.cn/s/c13d3a6251c0) (Extraction code: `4aii`)  
 
 > ⚠️ Note: Please choose the appropriate download option based on your region. Some links may have slower access speeds depending on your network location.
+
+## 🚀 Deployment Guide
+
+### Requirements
+
+- Python >= 3.8
+- CUDA GPU (recommended for accelerated training and inference)
+- pip
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/whynotnanfeng/LHRF.git
+cd LHRF
+
+# Install dependencies (choose one)
+pip install -r requirements.txt       # Standard installation
+# OR
+pip install -e .                      # Editable mode for development
+```
+
+### Quick Start
+
+**Train Model**
+```bash
+yolo train model=LHRF.yaml data=data_fire-smoke.yaml epochs=100 imgsz=640
+```
+
+**Inference**
+```bash
+yolo predict model=runs/detect/train/weights/best.pt source=path/to/image.jpg
+```
+
+**Export Model**
+```bash
+yolo export model=runs/detect/train/weights/best.pt format=onnx
+```
+
+### Python API
+
+```python
+from ultralytics import YOLO
+
+# Load model
+model = YOLO("LHRF.yaml")
+
+# Train
+model.train(data="data_fire-smoke.yaml", epochs=100, imgsz=640)
+
+# Inference
+results = model.predict(source="path/to/image.jpg")
+```
